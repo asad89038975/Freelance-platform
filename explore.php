@@ -13,7 +13,7 @@
 	<?php include "nav.php" ?>
 	<section class="section exploreS" style="margin-top: 80px; margin-bottom: 150px !important;">
 		<div class="container col-xxl-12 px-3 py-5">
-			<div id="notification" class="notification">Welcome To Our Site  <i class="bi bi-emoji-smile-fill fs-4"></i></div>
+			<div id="notification" class="notification">Welcome To Our Site 😊</div>
 			<?php
 			    if (isset($_GET["success"]) && $_GET["success"] == 1) {
 			        // JavaScript to display the notification message with timeout
@@ -33,25 +33,65 @@
           	<!-- for job cards show -->
             <div class="col-lg-9 col-md-10 col-12">
             	<div class="row d-flex">
-            		<div class="col-12">
-            			<div class="card">
-									  <div class="card-body">
-									  	<span style="font-size: 11px !important;">20-11-2000</span>
-									    <h4 class="card-title fw-semibold">Php Developer</h4>
-									    <h6 class="card-subtitle mb-2 text-white my-4" style="font-size: 11px !important;">Fixed-price</h6>
-									    <p class="card-text my-4">"Some quick example text to build on the card title and make up the bulk of the card's content."</p>
-									    <div class="text-start col-12">
-										    <ul class="d-flex align-items-center justify-content-start skillUl">
-										        <li class="skillL">php</li>
-										        <li class="skillL">full stack developer</li>
-										        <li class="skillL">javascript</li>
-										        <li class="skillL">my sql</li>
-										        <li class="skillL">frontend</li>
-										    </ul>
-										  </div>
-						    		  <a href="#" class="card-link text-white text-decoration-none" style="font-size: 12px !important;"><i class="bi bi-geo-alt me-2"></i> Pakistan</a>
-						        </div>
-						      </div>
+            		<div class="col-12 mb-4">
+            			<!-- job card start-->
+            			
+
+            			<?php
+											$servername = "localhost"; 
+											$username = "root";
+											$password = ""; 
+											$dbname = "freelance"; 
+
+											// Create connection
+											$connection = new mysqli($servername, $username, $password, $dbname);
+
+											// Check connection
+											if ($connection->connect_error) {
+											    die("Connection failed: " . $connection->connect_error);
+											}
+
+										$sql = "SELECT * FROM freelance_job WHERE status=1";
+										$result = $connection->query($sql);
+
+										// Check if the query was successful
+										if ($result === false) {
+										    die("Query failed: " . $connection->error);
+										}
+
+										if ($result->num_rows > 0) {
+										    while ($row = $result->fetch_assoc()) {
+										        echo '<div class="card mb-4">';
+										        echo '<div class="card-body">';
+										        echo '<span style="font-size: 11px !important;">' . date('d-m-Y', strtotime($row['del_time'])) . '</span>';
+										        echo '<h4 class="card-title fw-semibold">' . $row['title'] . '</h4>';
+										        echo '<h6 class="card-subtitle mb-2 text-white my-4" style="font-size: 11px !important;">Fixed-price</h6>';
+										        echo '<p class="card-text my-4">' . $row['job_desc'] . '</p>';
+										        echo '<div class="text-start col-12">';
+										        echo '<ul class="d-flex align-items-center justify-content-start skillUl">';
+										        
+										        // Skills list
+										        $skills = explode(',', $row['req_skill']);
+										        foreach ($skills as $skill) {
+										            echo '<li class="skillL">' . $skill . '</li>';
+										        }
+										        
+										        echo '</ul>';
+										        echo '</div>';
+										        echo '<a href="#" class="card-link text-white text-decoration-none" style="font-size: 12px !important;"><i class="bi bi-geo-alt me-2"></i> Pakistan</a>';
+										        echo '</div>';
+										        echo '</div>';
+										    }
+										} else {
+										    echo "No jobs found.";
+										}
+
+										// Close the connection after using it
+										$connection->close();
+									?>
+
+
+            			<!-- job card end-->
             		</div>
             	</div>
             </div>

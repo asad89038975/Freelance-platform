@@ -2,6 +2,6 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: admin_login.php?status=3");
+header("Location: index.php?admin=3");
 exit();
 ?>

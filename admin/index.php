@@ -14,6 +14,11 @@
               <div class="card" style="border-radius: 15px;">
                 <div class="card-body p-5">
                     <?php
+                      if (isset($_GET["admin"]) && ($_GET["admin"]) == 3) {
+                          echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Logout Successfully ! <i class="bi bi-emoji-smile"></i></div>';
+                      } 
+                    ?>
+                    <?php
                       if (isset($_GET["admin"]) && ($_GET["admin"]) == 0) {
                           echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">You are not admin ! <i class="bi bi-emoji-frown"></i></div>';
                       } 

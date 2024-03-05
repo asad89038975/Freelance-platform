@@ -1,7 +1,15 @@
 <?php
 	include_once "session.php"; 
- $admin_email =	$_SESSION['email'];
+
+	if (!isset($_SESSION['email'])) {
+		// Redirect to index.php page
+		header("Location: index.php");
+		exit();
+	}
+
+	$admin_email = $_SESSION['email'];
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,20 +37,36 @@
 			        echo '</script>';
 			    } 
 			?>
-			<a href="#"><h5>Admin/</h5></a>
-          <div class="row d-flex align-items-center justify-content-start g-5 py-4">
-          	<!-- cards show -->
-            <div class="col-xxl-4 col-lg-4 col-md-6 col-12">
-            	<div class="card">
-							  <div class="card-body">
-							    <h5 class="card-title">Create Job</h5>
-							  </div>
-							</div>
-            </div>
+			<div class="py-2 px-2" style="background-color: #0a58ca38 !important; border-radius: 5px;">
+				<a href="admin.php" class="bar">Admin /</a>
+			</div>
+          <div class="row d-flex align-items-center justify-content-center py-4">
+          	<!-- cards job -->
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard">
+		          	<a href="createJob.php" class="text-decoration-none">
+		            	<div class="card py-2 px-3">
+						  <div class="card-body">
+						    <h5 class="card-title">Create Job</h5>
+						  </div>
+						</div>
+		          	</a>
+	            </div>
+          	<!-- cards job -->          	
+          	<!-- cards manage job -->
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard">
+		          	<a href="manageJob.php" class="text-decoration-none">
+		            	<div class="card py-2 px-3">
+						  <div class="card-body">
+						    <h5 class="card-title">Job Management</h5>
+						  </div>
+						</div>
+		          	</a>
+	            </div>
+          	<!-- cards manage job -->
           </div>  	
 		</div>
 	</section>
-	<?php include "../footer.php" ?>
+	<?php include "footer.php" ?>
 	<?php include "../bottomcdn.php" ?>
 </body>
 </html>

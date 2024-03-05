@@ -218,19 +218,31 @@ body{
  .notification {
   display: none;
   position: fixed;
-  top: 0px;
-  left: 50%;
+  top: 10px;
+  left: 90%;
   transform: translateX(-50%);
   background-color: #0168ff;
   color: #fff; 
-  font-size: 22px;
-  padding: 26px 86px;
+  font-size: 13px;
+  padding: 14px 14px;
   border-radius: 14px 14px 0px 14px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
   z-index: 9999;
 }
 
 
+/*admin page css*/
+.bar{
+	font-size: 14px !important; 
+	font-weight: 500 !important;
+	color: #fff !important;
+}
+.adCard{
+	text-decoration: none;
+}
+.adCard:hover{
+	scale: 1.01;
+}
 
 
 

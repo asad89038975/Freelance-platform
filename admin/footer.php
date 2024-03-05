@@ -1,4 +1,4 @@
-<section class="sectionF">
+<section class="sectionF fixed-bottom">
   <!-- Footer -->
   <footer class="text-center text-white" style="background-color: #0a58ca6e;">
     <!-- Grid container -->
