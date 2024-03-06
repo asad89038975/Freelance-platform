@@ -36,7 +36,6 @@
             		<div class="col-12 mb-4">
             			<!-- job card start-->
             			
-
             			<?php
 											$servername = "localhost"; 
 											$username = "root";
@@ -54,21 +53,26 @@
 										$sql = "SELECT * FROM freelance_job WHERE status=1";
 										$result = $connection->query($sql);
 
-										// Check if the query was successful
 										if ($result === false) {
 										    die("Query failed: " . $connection->error);
 										}
 
 										if ($result->num_rows > 0) {
 										    while ($row = $result->fetch_assoc()) {
-										        echo '<div class="card mb-4">';
-										        echo '<div class="card-body">';
-										        echo '<span style="font-size: 11px !important;">' . date('d-m-Y', strtotime($row['del_time'])) . '</span>';
-										        echo '<h4 class="card-title fw-semibold">' . $row['title'] . '</h4>';
-										        echo '<h6 class="card-subtitle mb-2 text-white my-4" style="font-size: 11px !important;">Fixed-price</h6>';
-										        echo '<p class="card-text my-4">' . $row['job_desc'] . '</p>';
-										        echo '<div class="text-start col-12">';
-										        echo '<ul class="d-flex align-items-center justify-content-start skillUl">';
+										    		$job_id = $row['job_id'];
+										        echo '<div class="card jobCard mb-4">';
+														echo '<div class="card-body">';
+														echo '<div class="d-flex justify-content-between">';
+														echo '<span style="font-size: 11px !important;">' . date('d-m-Y', strtotime($row['del_time'])) . '</span>';
+														echo '<a href="applyJob.php?user_email=' . $user_email . '&jobid='. $job_id .'" class="btn btn-sm applyBtn" align="center">Apply <i class="bi bi-send-arrow-up-fill ms-1"></i></a>';
+														echo '</div>';
+														echo '<h4 class="card-title fw-semibold">' . $row['title'] . '</h4>';
+														echo '<h6 class="card-subtitle mb-2 text-white my-4" style="font-size: 11px !important;">$' . $row['job_price'] . '</h6>';
+														echo '<p class="card-text my-4">' . $row['job_desc'] . '</p>';
+														echo '<div class="text-start col-12">';
+														echo '<ul class="d-flex align-items-center justify-content-start skillUl">';
+														// Add the rest of your card content here
+
 										        
 										        // Skills list
 										        $skills = explode(',', $row['req_skill']);

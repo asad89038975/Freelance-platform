@@ -185,6 +185,24 @@ body{
 	align-items: center;
 	justify-content: flex-start;
 }
+.jobCard:hover{
+	scale: 1.01;
+	background-color: #042657 !important;
+}
+.applyBtn{
+	color: #0a58ca !important;
+	border-radius: 18px;
+	background-color: #fff !important;
+	font-size: 13px !important;
+	font-weight: 700 !important;
+	padding: 7px 20px;
+	text-align: center;
+	list-style: none !important;
+	margin-right: 10px !important;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
 
 /* Profile Picture */
 .profile-pic{
@@ -236,6 +254,8 @@ body{
 	font-size: 14px !important; 
 	font-weight: 500 !important;
 	color: #fff !important;
+	text-decoration: none !important;
+	list-style: none !important;
 }
 .adCard{
 	text-decoration: none;
