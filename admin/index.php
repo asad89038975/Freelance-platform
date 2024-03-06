@@ -25,7 +25,7 @@
                     ?>
                   <h2 class="text-center mb-5">Admin-Login</h2>
 
-                  <form method="POST" action="Admin_Login.php">
+                  <form method="POST" action="adminLogin.php">
                     <div class="row d-flex align-items-center justify-content-center">
 
                       <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">

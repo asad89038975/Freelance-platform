@@ -17,7 +17,7 @@
        <?php 
             if(isset($_SESSION['email'])) {
         ?>
-      <a class="nav_btnL btn btn-md me-2" href="admin_logout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a>
+      <a class="nav_btnL btn btn-md me-2" href="adminLogout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a>
       <?php } else {?>
           <a class="nav_btnL btn btn-md me-2" href="login.php"><i class="bi bi-person-lock"></i> Login</a>
           <a class="nav_btnS btn btn-md" href="register.php">Sign Up</a>

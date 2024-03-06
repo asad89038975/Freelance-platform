@@ -14,9 +14,6 @@ try {
     exit();
 }
 
-
-
-// Retrieve form data
 $email = $_POST['email'];
 $password = $_POST['password'];
 
