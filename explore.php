@@ -1,6 +1,16 @@
 <?php
 	include_once "session.php"; 
-  $user_email =	$_SESSION['login_user'];
+  $user_email = $_SESSION['login_user'];
+
+  $sqlUser = "SELECT * FROM remoteuser WHERE status = 1 AND email = '$user_email'";
+  $resultUser = $connection->query($sqlUser);
+
+  if ($resultUser->num_rows > 0) {
+  	while ($rowUser = $resultUser->fetch_assoc()) {
+  		$user_image = $rowUser['img'];
+  		$user_designation = $rowUser['designation'];
+  	}
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +39,7 @@
 			    } 
 			?>
 			<h4>Remote Jobs You Might Like</h4>
-          <div class="row d-flex align-items-center justify-content-start g-5 py-4">
+          <div class="row flex-column-reverse flex-lg-row d-flex align-items-start justify-content-start g-5 py-4">
           	<!-- for job cards show -->
             <div class="col-lg-9 col-md-10 col-12">
             	<div class="row d-flex">
@@ -100,19 +110,17 @@
             	</div>
             </div>
             <!-- for others  -->
-            <div class="col-lg-3 col-md-12 col-12 d-flex align-items-center justify-content-center d-none">
-            	<div class="card" style="width: 20rem;">
-							  <img src="" class="card-img-top" alt="">
-							  <div class="card-body">
-							    <h5 class="card-title">Card title</h5>
-							    <p class="card-text">Some quick</p>
-							  </div>
-							  <div class="card-body">
-							    <a href="#" class="card-link">Complete Your Profile</a>
-							  </div>
-							</div>
-            </div>
-          </div>  	
+            <div class="col-lg-3 col-md-12 col-12 d-flex align-items-center justify-content-center">
+						  <div class="card" align="center" style="width: 18rem;">
+						  	<div class="d-flex align-items-center justify-content-center mt-3">
+						    	<img src="<?php echo $user_image; ?>" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover;" class="card-img-top" alt="">
+						  	</div>
+						    <div class="card-body">
+						      <h5 class="card-title text-center fs-6"><?php echo $user_designation; ?></h5>
+						      <a href="profile.php" style="font-size: 12px;" class="card-link">Complete Your Profile</a>
+						    </div>
+						  </div>
+						</div> 	
 		</div>
 	</section>
 	<?php include "footer.php" ?>

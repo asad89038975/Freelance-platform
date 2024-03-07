@@ -1,4 +1,3 @@
-// Set timeout duration in milliseconds (e.g., 30 minutes)
 const TIMEOUT_DURATION = 24 * 60 * 60 * 1000; // 1 day in milliseconds
 
 let logoutTimer;

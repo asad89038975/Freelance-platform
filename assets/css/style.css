@@ -237,12 +237,12 @@ body{
   display: none;
   position: fixed;
   top: 10px;
-  left: 90%;
+  left: 85%;
   transform: translateX(-50%);
   background-color: #0168ff;
   color: #fff; 
   font-size: 13px;
-  padding: 14px 14px;
+  padding: 16px 26px;
   border-radius: 14px 14px 0px 14px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
   z-index: 9999;
