@@ -14,7 +14,7 @@
                 <div class="card-body p-5">
                     <?php
                       if (isset($_GET["success"]) && ($_GET["success"]) == 0) {
-                          echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">Oops ! Email and password incorrect ! <i class="bi bi-emoji-frown"></i></div>';
+                          echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">Not Verified Yet ! Go To Your <a href="https://gmail.com" target="_blank">Gmail</a> For Verify.<i class="bi bi-emoji-frown"></i></div>';
                       } 
                     ?>
                     <?php
@@ -33,8 +33,11 @@
                       </div>
 
                       <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
-                        <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" required />
-                        <label class="form-label" for="form3Example4cg">Your Password</label>
+                        <div class="d-flex align-items-center justify-content-end">
+                          <i type="button" class="bi bi-eye-fill mt-5 me-3" id="show_password" style="position: absolute;"></i>
+                        </div>
+                        <input type="password" name="password" id="password" class="form-control form-control-lg" required />
+                        <label class="form-label" for="password">Your Password</label>
                       </div> 
 
                      </div>   

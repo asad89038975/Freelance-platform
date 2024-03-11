@@ -18,7 +18,7 @@
         }
         
         // Using prepared statement to prevent SQL injection
-        $sql = "SELECT email, password FROM remoteuser WHERE email = ? and password = ?";
+        $sql = "SELECT email, password FROM remoteuser WHERE email = ? and password = ? AND verified = 1";
         $stmt = mysqli_prepare($connection, $sql);
         mysqli_stmt_bind_param($stmt, "ss", $email, $mypassword);
         mysqli_stmt_execute($stmt);

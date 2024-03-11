@@ -29,10 +29,23 @@
             exit;
         }
 
-        $sql = "INSERT INTO remoteuser (fullname, email, contact, address, gender, password, designation, skill_desc) 
-                VALUES ('$fullname', '$email', '$contact', '$address', '$gender', '$password', '$designation', '$skill_desc')";
+        // Generate a verification code
+        $verification_code = md5(uniqid(rand(), true));
+
+        $sql = "INSERT INTO remoteuser (fullname, email, contact, address, gender, password, designation, skill_desc, verification_code) 
+                VALUES ('$fullname', '$email', '$contact', '$address', '$gender', '$password', '$designation', '$skill_desc', '$verification_code')";
 
         if (mysqli_query($connection, $sql)) {
+            // Send verification email
+            $to = $email;
+            $subject = 'Verification Email';
+            $message = 'Please click the following link to verify your email: https://localhost/Freelance-platform/verify.php?code=' . $verification_code;
+            $headers = 'From: Remote Job' . "\r\n" .
+                       'Reply-To: your@example.com' . "\r\n" .
+                       'X-Mailer: PHP/' . phpversion();
+
+            mail($to, $subject, $message, $headers);
+
             $_SESSION['fullname'] = $fullname;
             $_SESSION['email'] = $email;
             header("Location: register.php?success=1");

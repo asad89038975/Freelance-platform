@@ -46,8 +46,9 @@
                       </div>
 
                       <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="email" id="form3Example3cg" name="email" class="form-control form-control-md" required />
-                        <label class="form-label" for="form3Example3cg">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control form-control-md" required />
+                        <span id="availability"></span>
+                        <label class="form-label" for="user_email">Your Email</label>
                       </div>
 
                       <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
