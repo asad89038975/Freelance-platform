@@ -30,21 +30,81 @@
         }
 
         // Generate a verification code
-        $verification_code = md5(uniqid(rand(), true));
+        $verification_code = rand(10,10000);
 
         $sql = "INSERT INTO remoteuser (fullname, email, contact, address, gender, password, designation, skill_desc, verification_code) 
                 VALUES ('$fullname', '$email', '$contact', '$address', '$gender', '$password', '$designation', '$skill_desc', '$verification_code')";
 
         if (mysqli_query($connection, $sql)) {
             // Send verification email
-            $to = $email;
-            $subject = 'Verification Email';
-            $message = 'Please click the following link to verify your email: https://localhost/Freelance-platform/verify.php?code=' . $verification_code;
-            $headers = 'From: Remote Job' . "\r\n" .
-                       'Reply-To: your@example.com' . "\r\n" .
-                       'X-Mailer: PHP/' . phpversion();
+$to = $email;
+$subject = 'Verification Email';
+$message = '
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 200px;
+        }
+        .verification-code {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .verification-code p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333333;
+        }
+        .verification-code h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="border: 1px solid #000;">
+        <div class="logo">
+            <h2 style="color: #0168ff;">Remote Job</h2>
+        </div>
+        <div class="verification-code">
+            <h2>Verification Code</h2>
+            <p>Your verification code is: ' . $verification_code . '</p>
+        </div>
+    </div>
+</body>
+</html>
+';
+$headers = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$headers .= 'From: Remote Job <your@example.com>' . "\r\n" .
+           'Reply-To: your@example.com' . "\r\n" .
+           'X-Mailer: PHP/' . phpversion();
 
-            mail($to, $subject, $message, $headers);
+mail($to, $subject, $message, $headers);
+
 
             $_SESSION['fullname'] = $fullname;
             $_SESSION['email'] = $email;
