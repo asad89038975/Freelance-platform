@@ -48,10 +48,9 @@ $message = '
     <title>Verification Email</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            font-family: "Muli", sans-serif !important;
+            background: #000;
+            color: #fff;
         }
         .container {
             max-width: 600px;
@@ -68,30 +67,30 @@ $message = '
         .verification-code {
             background-color: #ffffff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px 3px #0a58ca7a;
         }
         .verification-code p {
             margin: 0;
             font-size: 16px;
             line-height: 1.5;
-            color: #333333;
+            color: #fff;
         }
         .verification-code h2 {
             margin-top: 0;
             font-size: 24px;
-            color: #333333;
+            color: #fff;
         }
     </style>
 </head>
-<body>
-    <div class="container" style="border: 1px solid #000;">
+<body style="background-color: #000 !important;">
+    <div class="container my-5">
         <div class="logo">
-            <h2 style="color: #0168ff;">Remote Job</h2>
+            <h2 class="fs-1" style="color: #0168ff;">Remote Job</h2>
         </div>
-        <div class="verification-code">
-            <h2>Verification Code</h2>
-            <p>Your verification code is: ' . $verification_code . '</p>
+        <div class="verification-code" style="background: transparent; box-shadow: 3px 3px 3px 3px #0a58ca7a !important;">
+            <h2 style="color: #000 !important;">Verification Code</h2>
+            <p style="color: #000 !important;">Your verification code is: ' . $verification_code . '</p>
         </div>
     </div>
 </body>
@@ -99,7 +98,7 @@ $message = '
 ';
 $headers = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-$headers .= 'From: Remote Job <your@example.com>' . "\r\n" .
+$headers .= 'From: Remote Jobs <your@example.com>' . "\r\n" .
            'Reply-To: your@example.com' . "\r\n" .
            'X-Mailer: PHP/' . phpversion();
 
@@ -108,7 +107,7 @@ mail($to, $subject, $message, $headers);
 
             $_SESSION['fullname'] = $fullname;
             $_SESSION['email'] = $email;
-            header("Location: register.php?success=1");
+            header("Location: verify.php?success=1&email=" . urlencode($email));
             exit;
         } else {
             header("Location: register.php?error=1");

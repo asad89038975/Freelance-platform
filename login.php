@@ -14,12 +14,22 @@
                 <div class="card-body p-5">
                     <?php
                       if (isset($_GET["success"]) && ($_GET["success"]) == 0) {
-                          echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">Not Verified Yet ! Go To Your <a href="https://gmail.com" target="_blank">Gmail</a> For Verify.<i class="bi bi-emoji-frown"></i></div>';
+                          echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">Not Verified Yet ! Go To Your <a href="https://gmail.com" target="_blank">Gmail</a> For Verify Or Try Again.<i class="bi bi-emoji-frown"></i></div>';
                       } 
                     ?>
                     <?php
                       if (isset($_GET["status"]) && ($_GET["status"]) == 3) {
                           echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Logout Successfully ! <i class="bi bi-emoji-frown"></i></div>';
+                      } 
+                    ?>
+                    <?php
+                      if (isset($_GET["status"]) && ($_GET["status"]) == 4) {
+                          echo '<div class="alert alert-warning px-3 py-1 fw-semibold fs-6">No Account With This Email ! <i class="bi bi-emoji-frown"></i></div>';
+                      } 
+                    ?>
+                    <?php
+                      if (isset($_GET["verified"]) && ($_GET["verified"]) == 1) {
+                          echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Your Account is Verified Now. Thank you 😊</div>';
                       } 
                     ?>
                   <h2 class="text-uppercase text-center mb-5">LOGIN</h2>

@@ -23,6 +23,26 @@
 
   });
 </script>
+<script>
+  $(document).ready(function(){
+    $('#show_repassword').on(
+      'click', function(){
+        var passwordField = $('#repassword');
+        var passwordFieldType = passwordField.attr('type');
+
+        if (passwordFieldType == 'password') {
+          passwordField.attr('type', 'text');
+          $(this).removeClass('bi bi-eye-fill').addClass('bi bi-eye-slash-fill');
+        }else{
+          passwordField.attr('type', 'password');
+          $(this).removeClass('bi bi-eye-slash-fill').addClass('bi bi-eye-fill');
+        }
+
+      }
+    )
+
+  });
+</script>
 <!-- functionality for checking if email already exist -->
  <script>
     $(document).ready(function(){

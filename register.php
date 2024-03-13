@@ -67,13 +67,19 @@
                       </div>
 
                       <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="password" name="password" id="form3Example4cg" class="form-control form-control-md" required />
-                        <label class="form-label" for="form3Example4cg">Password</label>
+                        <div class="d-flex align-items-center justify-content-end">
+                          <i type="button" class="bi bi-eye-fill me-3" id="show_password" style="margin-top: 35px; position: absolute;"></i>
+                        </div>
+                        <input type="password" name="password" id="password" class="form-control form-control-md" required />
+                        <label class="form-label" for="password">Password</label>
                       </div> 
 
                       <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="password" name="repassword" id="form3Example4cdg" class="form-control form-control-md" required />
-                        <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                        <div class="d-flex align-items-center justify-content-end">
+                          <i type="button" class="bi bi-eye-fill me-3" id="show_repassword" style="margin-top: 35px; position: absolute;"></i>
+                        </div>
+                        <input type="password" name="repassword" id="repassword" class="form-control form-control-md" required />
+                        <label class="form-label" for="repassword">Repeat your password</label>
                       </div>
 
                       <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
