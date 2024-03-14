@@ -60,3 +60,24 @@
       })
     });
   </script>
+  <!-- auto suggestion input -->
+  <script>
+    $(document).ready(function(){
+      $('#skill_name').keyup(function(){
+        
+        var query = $(this).val();
+        if (query != '') {
+          $.ajax({
+            url: "search.php",
+            method: "POST",
+            data: {query: query},
+            success:function(data){
+              $('#skillsList').fadeIn();
+              $('#skillsList').html(data);
+            }
+          })
+        }
+        
+      });
+    });
+  </script>

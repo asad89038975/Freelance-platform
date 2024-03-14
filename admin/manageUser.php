@@ -111,7 +111,7 @@ if (!isset($_SESSION['email'])) {
 
                       
                   } else {
-                      echo "No jobs found.";
+                      echo "No Users found.";
                   }
 
                   // Close the database connection

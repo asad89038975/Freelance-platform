@@ -42,7 +42,7 @@
 			</div>
           <div class="row d-flex align-items-center justify-content-center p-lg-4 p-3">
           	<!-- cards job -->
-	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard">
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="createJob.php" class="text-decoration-none">
 		            	<div class="card py-2 px-3">
 						  <div class="card-body">
@@ -53,7 +53,7 @@
 	            </div>
           	<!-- cards job -->          	
           	<!-- cards manage job -->
-	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard">
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="manageJob.php" class="text-decoration-none">
 		            	<div class="card py-2 px-3">
 						  <div class="card-body">
@@ -64,7 +64,7 @@
 	            </div>
           	<!-- cards manage job -->
           	<!-- cards manage user -->
-	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard">
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="manageUser.php" class="text-decoration-none">
 		            	<div class="card py-2 px-3">
 						  <div class="card-body">
@@ -74,6 +74,17 @@
 		          	</a>
 	            </div>
           	<!-- cards manage user -->
+          	<!-- cards Add skill -->
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
+		          	<a href="addSkill.php" class="text-decoration-none">
+		            	<div class="card py-2 px-3">
+						  <div class="card-body">
+						    <h5 class="card-title">Add Skill</h5>
+						  </div>
+						</div>
+		          	</a>
+	            </div>
+          	<!-- cards Add skill -->
           </div>  	
 		</div>
 	</section>

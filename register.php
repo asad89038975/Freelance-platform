@@ -83,8 +83,9 @@
                       </div>
 
                       <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="text" id="form8" name="designation" class="form-control form-control-md" required />
-                        <label class="form-label" for="form8">Profession</label>
+                        <input type="text" id="skill_name" name="designation" class="form-control form-control-md" required />
+                        <div id="skillsList"></div>
+                        <label class="form-label" for="skill_name">Profession</label>
                       </div>
 
                       <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
