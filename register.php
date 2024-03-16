@@ -25,7 +25,7 @@
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-12 col-lg-10 col-xl-10">
               <div class="card" style="border-radius: 15px;">
-                <div class="card-body p-5">
+                <div class="card-body p-lg-5 p-1">
                   <?php
                     if (isset($_GET["success"]) == 1) {
                         echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Hurrah ! Successfully Registered ! <i class="bi bi-emoji-smile"></i></div>';
