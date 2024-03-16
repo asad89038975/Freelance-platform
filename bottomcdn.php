@@ -61,23 +61,61 @@
     });
   </script>
   <!-- auto suggestion input -->
-  <script>
-    $(document).ready(function(){
-      $('#skill_name').keyup(function(){
-        
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('#skill_name').keyup(function(){
         var query = $(this).val();
         if (query != '') {
-          $.ajax({
-            url: "search.php",
-            method: "POST",
-            data: {query: query},
-            success:function(data){
-              $('#skillsList').fadeIn();
-              $('#skillsList').html(data);
-            }
-          })
+            $.ajax({
+                url: "search.php",
+                method: "POST",
+                data: {query:query},
+                success:function(data){
+                    $('#skillsList').fadeIn();
+                    $('#skillsList').html(data);
+                }
+            });
+        }
+    });
+
+    $(document).on('click', 'li', function(){
+        var selectedValue = $(this).text();
+        var currentValue = $('#skill_name').val();
+        
+        // Append the selected value with a comma if the field is not empty
+        if (currentValue !== '') {
+            $('#skill_name').val(currentValue + ', ' + selectedValue);
+        } else {
+            $('#skill_name').val(selectedValue);
         }
         
-      });
+        $('#skillsList').fadeOut();
+        
+        // Append selected value to selectedValues div with a close button
+        $('#selectedValues').append('<span class="selected-value">' + selectedValue + '<button class="remove-value">X</button></span>');
     });
-  </script>
+
+    // Remove value when close button is clicked
+    $(document).on('click', '.remove-value', function(){
+        $(this).parent().remove();
+        updateSkillInput();
+    });
+
+    $('#skill_name').on('change', function(){
+        updateSkillInput();
+    });
+
+    function updateSkillInput() {
+        var selectedValues = [];
+        $('.selected-value').each(function(){
+            selectedValues.push($(this).text());
+        });
+        $('#skill_name').val(selectedValues.join(', '));
+    }
+});
+</script>
+
+

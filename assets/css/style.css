@@ -173,6 +173,10 @@ body{
     max-height: 200px; 
     overflow-y: auto; 
   }
+  #skillsList ul li{
+  	padding: 12px;
+  	cursor: pointer;
+  }
 /* Explore page */
 .skillUl{
 	list-style: none;
