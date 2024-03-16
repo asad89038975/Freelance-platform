@@ -94,14 +94,8 @@ $(document).ready(function(){
         
         $('#skillsList').fadeOut();
         
-        // Append selected value to selectedValues div with a close button
-        $('#selectedValues').append('<span class="selected-value">' + selectedValue + '<button class="remove-value">X</button></span>');
-    });
-
-    // Remove value when close button is clicked
-    $(document).on('click', '.remove-value', function(){
-        $(this).parent().remove();
-        updateSkillInput();
+        // Append selected value to selectedValues div without remove button
+        $('#selectedValues').append('<span class="selected-value">' + selectedValue + '</span>');
     });
 
     $('#skill_name').on('change', function(){
@@ -113,9 +107,10 @@ $(document).ready(function(){
         $('.selected-value').each(function(){
             selectedValues.push($(this).text());
         });
-        $('#skill_name').val(selectedValues.join(', '));
+        $('#skill_name').val(selectedValues.join(','));
     }
 });
 </script>
+
 
 

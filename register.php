@@ -98,8 +98,7 @@
 
                       <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
                         <input type="text" id="skill_name" name="designation" class="form-control form-control-md" required />
-                        <div id="selectedValues"></div>
-
+                        <div id="selectedValues" style="padding: 8px;"></div>
                         <div id="skillsList"></div>
                         <label class="form-label" for="skill_name">Profession</label>
                       </div>

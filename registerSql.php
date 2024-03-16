@@ -88,7 +88,7 @@ $message = '
         <div class="logo">
             <h2 class="fs-1" style="color: #0168ff;">Remote Job</h2>
         </div>
-        <div class="verification-code" style="background: transparent; box-shadow: 3px 3px 3px 3px #0a58ca7a !important;">
+        <div class="verification-code mb-5" style="background: transparent; box-shadow: 3px 3px 3px 3px #0a58ca7a !important;">
             <h2 style="color: #000 !important;">Verification Code</h2>
             <p style="color: #000 !important;">Your verification code is: ' . $verification_code . '</p>
         </div>
