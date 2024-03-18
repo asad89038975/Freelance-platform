@@ -60,7 +60,7 @@
 											    die("Connection failed: " . $connection->connect_error);
 											}
 
-										$sql = "SELECT * FROM freelance_job WHERE status=1";
+										$sql = "SELECT * FROM freelance_job WHERE status=1 AND req_skill = designation";
 										$result = $connection->query($sql);
 
 										if ($result === false) {
