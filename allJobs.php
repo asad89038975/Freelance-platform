@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Explore</title>
+	<title>All Jobs</title>
 	<?php include "topcdn.php" ?>
 
 </head>
@@ -24,33 +24,9 @@
 	<?php include "nav.php" ?>
 	<section class="section exploreS" style="margin-top: 80px; margin-bottom: 150px !important;">
 		<div class="container col-xxl-12 px-3 py-5">
-			<div id="notification" class="notification">Welcome To Our Site 😊</div>
-			<?php
-			    if (isset($_GET["success"]) && $_GET["success"] == 1) {
-			        // JavaScript to display the notification message with timeout
-			        echo '<script>';
-			        echo 'document.addEventListener("DOMContentLoaded", function() {';
-			        echo 'var notification = document.getElementById("notification");';
-			        echo 'notification.style.display = "block";'; 
-			        echo 'setTimeout(function() {';
-			        echo 'notification.style.display = "none";'; 
-			        echo '}, 3000);';
-			        echo '});';
-			        echo '</script>';
-			    } 
-			?>
-			<h4>Remote Jobs You Might Like</h4>
-          <div class="row flex-column-reverse flex-lg-row d-flex align-items-start justify-content-start g-5 py-4">
-          	<!-- for job cards show -->
-            <div class="col-lg-9 col-md-10 col-12">
-            	<div class="row d-flex">
-            		<div class="col-12 text-end">
-										<a class="btn btn-lg allBtn" href="allJobs.php">view all Jobs <i class="bi bi-box-arrow-in-up-right" style="font-size: 13px; margin-left: 5px;"></i></a>	
-								</div>
-            		<div class="col-12 my-4">
-            			<!-- job card start-->
-            			
-            			<?php
+			<h4>All Jobs</h4>
+          <div class="row d-flex align-items-center justify-content-center py-4">	
+          		<?php
 											$servername = "localhost"; 
 											$username = "root";
 											$password = ""; 
@@ -64,7 +40,7 @@
 											    die("Connection failed: " . $connection->connect_error);
 											}
 
-										$sql = "SELECT * FROM freelance_job WHERE status=1 AND req_skill = '$user_designation'";
+										$sql = "SELECT * FROM freelance_job WHERE status=1";
 										$result = $connection->query($sql);
 
 										if ($result === false) {
@@ -74,7 +50,7 @@
 										if ($result->num_rows > 0) {
 										    while ($row = $result->fetch_assoc()) {
 										    		$job_id = $row['job_id'];
-										        echo '<div class="card jobCard mb-4">';
+										        echo '<div class="card jobCard col-xxl-4 col-lg-4 col-md-6 col-12 me-3 mb-4">';
 														echo '<div class="card-body">';
 														echo '<div class="d-flex justify-content-between">';
 														echo '<span style="font-size: 11px !important;">' . date('d-m-Y', strtotime($row['del_time'])) . '</span>';
@@ -114,22 +90,7 @@
 
 
             			<!-- job card end-->
-            		</div>
-            	</div>
-            </div>
-            <!-- for others  -->
-            <div class="col-lg-3 col-md-12 col-12 d-flex align-items-center justify-content-center">
-						  <div class="card jobCard" align="center" style="width: 18rem; margin-top: 64px;">
-						  	<div class="d-flex align-items-center justify-content-center mt-3">
-						    	<img src="<?php echo $user_image; ?>" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover;" class="card-img-top" alt="">
-						  	</div>
-						    <div class="card-body">
-						      <h5 class="card-title text-center fs-6"><?php echo $user_designation; ?></h5>
-						      <a href="profile.php" style="font-size: 12px;" class="card-link">Complete Your Profile</a>
-						    </div>
-						  </div>
-						</div> 	
-		</div>
+					</div>
 	</section>
 	<?php include "footer.php" ?>
 	<?php include "bottomcdn.php" ?>

@@ -234,6 +234,24 @@ body{
 	align-items: center;
 	justify-content: flex-start;
 }
+.allBtn{
+	color: #0a58ca !important;
+	border-radius: 22px;
+	background-color: #fff !important;
+	font-size: 13px !important;
+	font-weight: 600 !important;
+	padding: 10px 40px;
+	text-align: center;
+	list-style: none !important;
+	margin-right: 10px !important;
+	text-transform: uppercase;
+	letter-spacing: 1.3px;
+}
+.allBtn:hover{
+	scale: 1.05;
+}
+
+
 
 /* Profile Picture */
 .profile-pic{
@@ -294,6 +312,7 @@ body{
 .adCard:hover{
 	scale: 1.01;
 }
+
 
 
 
