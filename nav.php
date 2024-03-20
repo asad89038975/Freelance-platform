@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="container">
     <a class="navbar-brand text-light fs-3 fw-bold text-uppercase me-5" href="explore.php">Remote Job</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" style="background-color: #fff !important; font-size: 14px;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -10,7 +10,7 @@
           <a class="nav-link active me-2" aria-current="page" href="#">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Why Join</a>
+          <a class="nav-link" href="#joinS">Why Join</a>
         </li>
       </ul>
       <div class="d-flex">

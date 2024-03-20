@@ -43,27 +43,27 @@
                   <h2 class="text-uppercase text-center mb-5">Apply For Remote</h2>
 
                   <form method="POST" action="applyJobSql.php" enctype="multipart/form-data">
-                  <input type="hidden" value="<?php echo $jobid ?>" name="jobid">
-                  <input type="hidden" value="<?php echo $user_email ?>" name="user_email">
-                  <input type="hidden" value="<?php echo $user_id ?>" name="user_id"> <!-- Assuming user_id is already set -->
-                  <div class="row d-flex align-items-center justify-content-center">
-                      <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
-                          <input type="text" id="form8" value="<?php echo $job_title; ?>" name="job_title" class="form-control form-control-md" disabled />
-                          <label class="form-label" for="form8">Applied For</label>
+                      <input type="hidden" value="<?php echo $jobid ?>" name="jobid">
+                      <input type="hidden" value="<?php echo $user_email ?>" name="user_email">
+                      <input type="hidden" value="<?php echo $user_id ?>" name="user_id"> <!-- Assuming user_id is already set -->
+                      <div class="row d-flex align-items-center justify-content-center">
+                          <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
+                              <input type="text" id="form8" value="<?php echo $job_title; ?>" name="job_title" class="form-control form-control-md" disabled />
+                              <label class="form-label" for="form8">Applied For</label>
+                          </div>
+                          <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
+                              <textarea type="text" name="cover_letter" id="form9" class="form-control form-control-md" rows="4" required ></textarea>
+                              <label class="form-label" for="form9">Cover Letter</label>
+                          </div>
+                          <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
+                              <input type="file" id="form10" class="form-control form-control-md" name="work">
+                              <label class="form-label" for="form10">Related Work</label>
+                          </div>
+                      </div>   
+                      <div class="d-flex justify-content-center">
+                          <button type="submit" class="btn w-25 btn-block btn-lg gradient-custom-4 text-body" name="submit" style="color: #fff !important;">Apply</button>
                       </div>
-                      <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
-                          <textarea type="text" name="cover_letter" id="form9" class="form-control form-control-md" rows="4" required ></textarea>
-                          <label class="form-label" for="form9">Cover Letter</label>
-                      </div>
-                      <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
-                          <input type="file" id="form10" class="form-control form-control-md" name="work">
-                          <label class="form-label" for="form10">Related Work</label>
-                      </div>
-                  </div>   
-                  <div class="d-flex justify-content-center">
-                      <button type="submit" class="btn w-25 btn-block btn-lg gradient-custom-4 text-body" name="submit" style="color: #fff !important;">Apply</button>
-                  </div>
-              </form>
+                  </form>
 
 
                 </div>

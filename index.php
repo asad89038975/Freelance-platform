@@ -59,6 +59,24 @@
 
       </section>
 
+      <!-- =============why join us section============= -->
+      <section class="section joinS" id="joinS" style="min-height: 70vh;">
+
+        <div class="container p-lg-5 p-1">
+          <div class="row p-lg-5 p-2">
+              <div class="heading p-4">
+                <h4 class="aboutH mb-5 text-center">Why Join</h4>
+                <p class="aboutP d-flex align-items-center justify-content-start"><i class="bi bi-dot fs-1 me-3"></i> If you are interested in consistent work then <a class="ms-2 me-2" style="color: #0168ff !important;" href="#"> RemoteJob </a> is your home.</p>
+                <p class="aboutP d-flex align-items-center justify-content-start"><i class="bi bi-dot fs-1 me-3"></i> If you are just starting out as a freelancer or you are an experience freelancer waiting for your next big job use us to fill that gap.</p>
+              </div>
+          </div>
+        </div>
+
+      </section>    
+
+
+
+
       <!-- =============Footer section============= -->
       <?php include "footer.php"; ?>
 
