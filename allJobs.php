@@ -24,7 +24,7 @@
 	<?php include "nav.php" ?>
 	<section class="section exploreS" style="margin-top: 80px; margin-bottom: 150px !important;">
 		<div class="container col-xxl-12 px-3 py-5">
-			<h4>All Preffered Jobs</h4>
+			<h4 class="exploreH">All Preffered Jobs</h4>
           <div class="row d-flex align-items-center justify-content-center py-5">	
           		<?php
 					$servername = "localhost"; 

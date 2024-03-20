@@ -91,6 +91,7 @@ body{
 	min-height: 85vh;
 }
 .aboutH{
+	font-family: 'Quicksand', sans-serif !important;
 	font-size: 44px !important;
 	font-weight: 600 !important;
 	overflow: hidden !important;
@@ -122,11 +123,32 @@ body{
 	font-weight: 600 !important;
 	text-transform: uppercase;
 }
+.joinPara{
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+.joinP{
+	font-size: 20px !important;
+}
 .joinUL{
 	display: flex;
 	align-items: center !important;
 	justify-content: start !important;
 	flex-direction: column;
+}
+.joinBtn{
+	color: #fff;
+	background-color: transparent;
+	border-radius: 28px;
+	font-size: 18px !important;
+	font-weight: 500 !important;
+	padding: 14px 50px;
+	box-shadow: 0px 3px 3px 3px #0a58caab;
+}
+.joinBtn:hover{
+	scale: 1.05;
+	box-shadow: 0px 5px 5px 5px #0a58caab;
 }
 /*footer section*/
 .sectionF{
@@ -156,15 +178,17 @@ body{
   }
   .form-control{
     background: #202a38 !important;
-    padding: 5px 12px !important;
+    padding: 10px 12px !important;
     color: #dadada !important;
     border: 0.5px solid #000 !important;
+    border-radius: 22px;
   }
   .form-label{
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-weight: 500 !important;
     color: #dadada !important;
   }
+
   #skillsList {
     position: absolute;
     z-index: 999;
@@ -178,6 +202,9 @@ body{
   	cursor: pointer;
   }
 /* Explore page */
+.exploreH{
+	font-family: 'Quicksand', sans-serif !important;
+}
 .skillUl{
 	list-style: none;
 	padding-left: 0 !important;
@@ -216,6 +243,14 @@ body{
     background: #9f9393;
     padding: 0px 5px;
 }
+input{
+	border-radius: 22px !important;
+}
+input::placeholder{
+    color: #5c677d !important;
+    background-color: transparent !important;
+    text-transform: capitalize;
+  }
 .jobCard:hover{
 	scale: 1.01;
 	background-color: #042657 !important;
@@ -250,6 +285,36 @@ body{
 .allBtn:hover{
 	scale: 1.05;
 }
+.dashCont{
+	background-color: #042657;
+	color: #fff !important;
+}
+.dashBtn{
+	color: #fff !important;
+}
+.dashClose{
+  background: #044199;
+  color: #fff;
+  border: 1px solid #005bde;
+  border-radius: 22px;
+  padding: 6px 14px;
+  font-size: 14px;
+}
+.dashHead{
+  border-bottom: 0.5px solid #044199;
+}
+.dashFooter{
+  border-top: 0.5px solid #044199;
+}
+.dashP{
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 1.3px;
+}
+.bg-info{
+	padding: 6px 6px;
+}
+
 
 
 
@@ -312,7 +377,6 @@ body{
 .adCard:hover{
 	scale: 1.01;
 }
-
 
 
 
@@ -423,7 +487,14 @@ body{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
   z-index: 9999;
 }
-	
+.joinPara{
+	display: flex;
+	align-items: start;
+	justify-content: start;
+}
+.jobCard{
+	margin-top: 0px !important;
+}
 }
 
 

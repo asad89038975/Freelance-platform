@@ -27,7 +27,7 @@
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-12 col-lg-10 col-xl-10">
               <div class="card" style="border-radius: 15px;">
-                <div class="card-body p-5">
+                <div class="card-body p-lg-5 p-3">
                    <?php
                       if (isset($_GET["success"]) && ($_GET["success"]) == 1) {
                           echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Hurrah ! Job Applied Successfully ! <i class="bi bi-emoji-smile"></i></div>';
@@ -40,7 +40,7 @@
                       } 
                     ?>
 
-                  <h2 class="text-uppercase text-center mb-5">Apply For Remote</h2>
+                  <h2 class="text-uppercase text-center mb-5">Apply For Remote Job</h2>
 
                   <form method="POST" action="applyJobSql.php" enctype="multipart/form-data">
                       <input type="hidden" value="<?php echo $jobid ?>" name="jobid">
@@ -61,7 +61,7 @@
                           </div>
                       </div>   
                       <div class="d-flex justify-content-center">
-                          <button type="submit" class="btn w-25 btn-block btn-lg gradient-custom-4 text-body" name="submit" style="color: #fff !important;">Apply</button>
+                          <button type="submit" class="btn btn-block btn-lg gradient-custom-4 text-body" name="submit" style="color: #fff !important;">Apply</button>
                       </div>
                   </form>
 

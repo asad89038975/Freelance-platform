@@ -10,6 +10,7 @@
   		$user_id = $rowUser['user_id'];
   		$user_image = $rowUser['img'];
   		$user_designation = $rowUser['designation'];
+  		$fullname = $rowUser['fullname'];
   	}
   }
 ?>
@@ -39,7 +40,7 @@
 			        echo '</script>';
 			    } 
 			?>
-			<h4>Remote Jobs You Might Like</h4>
+			<h4 class="exploreH">Remote Jobs You Might Like</h4>
           <div class="row flex-column-reverse flex-lg-row d-flex align-items-start justify-content-start g-5 py-4">
           	<!-- for job cards show -->
             <div class="col-lg-9 col-md-10 col-12">
@@ -120,12 +121,17 @@
             <!-- for others  -->
             <div class="col-lg-3 col-md-12 col-12 d-flex align-items-center justify-content-center">
 						  <div class="card jobCard" align="center" style="width: 18rem; margin-top: 64px;">
-						  	<div class="d-flex align-items-center justify-content-center mt-3">
-						    	<img src="<?php echo $user_image; ?>" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover;" class="card-img-top" alt="">
+						  	<div class="d-flex align-items-center justify-content-center mt-4">
+						    	<img src="<?php echo $user_image; ?>" style="width: 85px; height: 85px; border-radius: 50%; object-fit: cover;" class="card-img-top" alt="">
 						  	</div>
 						    <div class="card-body">
-						      <h5 class="card-title text-center fs-6"><?php echo $user_designation; ?></h5>
-						      <a href="profile.php" style="font-size: 12px;" class="card-link">Complete Your Profile</a>
+						      <h5 class="card-title text-center fs-6"><?php echo $fullname; ?></h5>
+						      <h5 class="card-title text-center fs-6">$200</h5>
+						      <a href="profile.php" style="font-size: 12px;" class="card-link">Complete Your Profile</a><br>
+						      <button type="button" class="btn btn-sm applyBtn my-4 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+									  Dashboard
+									</button>
+
 						    </div>
 						  </div>
 						</div> 	
@@ -135,3 +141,27 @@
 	<?php include "bottomcdn.php" ?>
 </body>
 </html>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content dashCont">
+      <div class="modal-header dashHead">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">User Dashboard</h1>
+        <!-- <button type="button" class="btn-close dashBtn" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body" style="border-bottom: none !important;">
+        <div class="form-group p-2">
+        	<p class="dashP my-3">Total Jobs (Open): <span class="badge bg-info text-dark ms-4">23</span></p>
+        	<p class="dashP my-3">Related Jobs : <span class="badge bg-info text-dark ms-4">23</span></p>
+        	<p class="dashP my-3">Applied Jobs : <span class="badge bg-info text-dark ms-4">23</span></p>
+        	<p class="dashP my-3">Completed Jobs : <span class="badge bg-info text-dark ms-4">23</span></p>
+        	<p class="dashP my-3">Total Earning : <span class="badge bg-info text-dark ms-4">$23.00</span></p>
+        </div>
+      </div>
+      <div class="modal-footer dashFooter">
+        <button type="button" class="btn btn-secondary dashClose" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end here -->

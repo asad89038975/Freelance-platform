@@ -3,20 +3,6 @@
 <head>
   <title>Register</title>
   <?php include "topcdn.php"; ?>
-  <style>
-    .selected-value {
-        display: inline-block;
-        margin-right: 5px;
-        padding: 5px;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
-    .selected-value .remove {
-        margin-left: 5px;
-        cursor: pointer;
-    }
-</style>
 </head>
 <body>
     <section class="vh-100 bg-image">
@@ -54,56 +40,56 @@
                   <form method="POST" action="registerSql.php" required>
                     <div class="row d-flex align-items-center justify-content-center">
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="text" id="form3Example1cg" name="fullname" class="form-control form-control-md" required />
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
+                        <input type="text" id="form3Example1cg" placeholder="Enter your full name" name="fullname" class="form-control form-control-md" required />
                         <label class="form-label" for="form3Example1cg">Full Name</label>
                       </div>
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="email" id="email" name="email" class="form-control form-control-md" required />
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control form-control-md" required />
                         <span id="availability"></span>
                         <label class="form-label" for="user_email">Your Email</label>
                       </div>
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="text" id="form5" name="contact" class="form-control form-control-md" required />
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
+                        <input type="text" id="form5" name="contact" placeholder="Enter your Contact" class="form-control form-control-md" required />
                         <label class="form-label" for="form5">Contact No.</label>
                       </div>
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="text" id="form6" name="address" class="form-control form-control-md" required />
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
+                        <input type="text" id="form6" name="address" placeholder="Enter your Address" class="form-control form-control-md" required />
                         <label class="form-label" for="form6">Address</label>
                       </div>
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="text" id="form7" name="gender" class="form-control form-control-md" required />
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
+                        <input type="text" id="form7" name="gender" placeholder="your Gender" class="form-control form-control-md" required />
                         <label class="form-label" for="form7">Gender</label>
                       </div>
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
                         <div class="d-flex align-items-center justify-content-end">
                           <i type="button" class="bi bi-eye-fill me-3" id="show_password" style="margin-top: 35px; position: absolute;"></i>
                         </div>
-                        <input type="password" name="password" id="password" class="form-control form-control-md" required />
+                        <input type="password" name="password" placeholder="Create your password" id="password" class="form-control form-control-md" required />
                         <label class="form-label" for="password">Password</label>
                       </div> 
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
                         <div class="d-flex align-items-center justify-content-end">
                           <i type="button" class="bi bi-eye-fill me-3" id="show_repassword" style="margin-top: 35px; position: absolute;"></i>
                         </div>
-                        <input type="password" name="repassword" id="repassword" class="form-control form-control-md" required />
+                        <input type="password" placeholder="Retype password" name="repassword" id="repassword" class="form-control form-control-md" required />
                         <label class="form-label" for="repassword">Repeat your password</label>
                       </div>
 
-                      <div class="form-outline mb-3 col-lg-6 col-md-12 col-12">
-                        <input type="text" id="skill_name" name="designation" class="form-control form-control-md" required />
+                      <div class="form-outline mb-4 col-lg-6 col-md-12 col-12">
+                        <input type="text" id="skill_name" placeholder="Enter your profession" name="designation" style="margin-top: 14px;" class="form-control form-control-md" required />
+                        <label class="form-label" for="skill_name">Profession</label>
                         <div id="selectedValues" style="padding: 8px;"></div>
                         <div id="skillsList"></div>
-                        <label class="form-label" for="skill_name">Profession</label>
                       </div>
 
-                      <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
+                      <div class="form-outline mb-4 col-lg-12 col-md-12 col-12">
                         <textarea type="text" name="skill_desc" id="form9" class="form-control form-control-md" rows="4" required ></textarea>
                         <label class="form-label" for="form9">Describe Briefly Your Skills</label>
                       </div>

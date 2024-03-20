@@ -38,7 +38,7 @@
                     <div class="row d-flex align-items-center justify-content-center">
 
                       <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">
-                        <input type="email" id="form3Example3cg" name="email" class="form-control form-control-lg" required />
+                        <input type="email" id="form3Example3cg" name="email" placeholder="Your email" class="form-control form-control-lg" required />
                         <label class="form-label" for="form3Example3cg">Your Email</label>
                       </div>
 
@@ -46,7 +46,7 @@
                         <div class="d-flex align-items-center justify-content-end">
                           <i type="button" class="bi bi-eye-fill mt-5 me-3" id="show_password" style="position: absolute;"></i>
                         </div>
-                        <input type="password" name="password" id="password" class="form-control form-control-lg" required />
+                        <input type="password" name="password" id="password" placeholder="Your password" class="form-control form-control-lg" required />
                         <label class="form-label" for="password">Your Password</label>
                       </div> 
 

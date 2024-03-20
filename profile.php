@@ -46,7 +46,7 @@
   			<div class="row d-flex align-items-center justify-content-start g-5 py-4">
   				<div class="col-12">
   					<div class="card" style="border-radius: 15px;">
-                       <div class="card-body p-5">
+                       <div class="card-body p-lg-5 p-3">
                        		<?php
 			                      if (isset($_GET["status"]) && ($_GET["status"]) == 1) {
 			                          echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Profile Updates Successfully! <i class="bi bi-emoji-smile"></i></div>';
@@ -83,7 +83,7 @@
 							                    <label class="form-label" for="form3Example1">Edit Profile Photo</label>
 											    <div class="d-flex justify-content-center">
 							                      <button type="submit"
-							                        class="btn w-25 btn-sm gradient-custom-4 text-body" value="submit" name="submit" style="padding: 6px 6px !important; color: #fff !important;">Update</button>
+							                        class="btn btn-sm gradient-custom-4 text-body" value="submit" name="submit" style="color: #fff !important;">Update</button>
 							                    </div>
 							                </div>
 							            </div>
@@ -133,7 +133,7 @@
 
 			                    <div class="d-flex justify-content-center">
 			                      <button type="submit"
-			                        class="btn w-50 btn-block btn-lg gradient-custom-4 text-body" value="submit" name="submit" style="color: #fff !important;">Update</button>
+			                        class="btn btn-block btn-lg gradient-custom-4 text-body" value="submit" name="submit" style="color: #fff !important;">Update</button>
 			                    </div>
 
 			                </form>

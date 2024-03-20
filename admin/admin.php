@@ -40,11 +40,11 @@
 			<div class="py-2 px-2" style="background-color: #0a58ca38 !important; border-radius: 5px;">
 				<a href="admin.php" class="bar">Admin /</a>
 			</div>
-          <div class="row d-flex align-items-center justify-content-center p-lg-4 p-3">
+          <div class="row d-flex align-items-center justify-content-center p-lg-5 p-3">
           	<!-- cards job -->
 	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="createJob.php" class="text-decoration-none">
-		            	<div class="card py-2 px-3">
+		            	<div class="card py-3 px-3">
 						  <div class="card-body">
 						    <h5 class="card-title">Create Job</h5>
 						  </div>
@@ -55,7 +55,7 @@
           	<!-- cards manage job -->
 	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="manageJob.php" class="text-decoration-none">
-		            	<div class="card py-2 px-3">
+		            	<div class="card py-3 px-3">
 						  <div class="card-body">
 						    <h5 class="card-title">Job Management</h5>
 						  </div>
@@ -66,7 +66,7 @@
           	<!-- cards manage user -->
 	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="manageUser.php" class="text-decoration-none">
-		            	<div class="card py-2 px-3">
+		            	<div class="card py-3 px-3">
 						  <div class="card-body">
 						    <h5 class="card-title">User Management</h5>
 						  </div>
@@ -77,7 +77,7 @@
           	<!-- cards Add skill -->
 	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="addSkill.php" class="text-decoration-none">
-		            	<div class="card py-2 px-3">
+		            	<div class="card py-3 px-3">
 						  <div class="card-body">
 						    <h5 class="card-title">Add Skill</h5>
 						  </div>
