@@ -74,6 +74,9 @@ if (!isset($_SESSION['email'])) {
                       </thead>";
                       while ($row = $result->fetch_assoc()) {   
                         $job_id = $row['job_id'];
+                        echo $req_skill =$row['req_skill'];
+                        $req_skill_array = explode(',', $row['req_skill']);
+                        print_r($req_skill_array);
                         $counter++;
 
                           echo "<tbody class='py-3'>";
