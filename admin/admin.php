@@ -85,6 +85,17 @@
 		          	</a>
 	            </div>
           	<!-- cards Add skill -->
+          	<!-- cards Add skill -->
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
+		          	<a href="appliedCandidate.php" class="text-decoration-none">
+		            	<div class="card py-3 px-3">
+						  <div class="card-body">
+						    <h5 class="card-title">Applied Candidates</h5>
+						  </div>
+						</div>
+		          	</a>
+	            </div>
+          	<!-- cards Add skill -->
           </div>  	
 		</div>
 	</section>

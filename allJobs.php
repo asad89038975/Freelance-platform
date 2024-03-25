@@ -27,7 +27,7 @@
 			<div class="col-12 d-flex align-items-center justify-content-center" style="position: relative; min-height: 350px;">
 			    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
 			    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url(assets/images/banner3.jpg); background-position: 50% 50%; object-fit: cover; filter: brightness(70%);"></div>
-			    <h1 class="text-center" style="position: relative; z-index: 1; font-size: 60px; font-weight: 900; font-family: 'Quicksand', sans-serif !important; color: white;">Opportunity is wherever <br> you are</h1>
+			    <h1 class="text-center" style="position: relative; z-index: 1; font-size: 60px; font-weight: 900; font-family: 'Quicksand', sans-serif !important; color: white;">Let's redefine success <br> together</h1>
 			</div>
 		<div class="container col-xxl-12 px-3 py-5">
 			<h4 class="exploreH">All Preffered Jobs</h4>

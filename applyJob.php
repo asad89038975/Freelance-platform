@@ -45,6 +45,7 @@
                   <form method="POST" action="applyJobSql.php" enctype="multipart/form-data">
                       <input type="hidden" value="<?php echo $jobid ?>" name="jobid">
                       <input type="hidden" value="<?php echo $user_email ?>" name="user_email">
+                      <input type="hidden" value="<?php echo $job_title ?>" name="job_title">
                       <input type="hidden" value="<?php echo $user_id ?>" name="user_id"> <!-- Assuming user_id is already set -->
                       <div class="row d-flex align-items-center justify-content-center">
                           <div class="form-outline mb-3 col-lg-12 col-md-12 col-12">

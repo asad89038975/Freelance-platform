@@ -13,7 +13,7 @@ if (!isset($_SESSION['email'])) {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Manage Job</title>
+  <title>Applied Candidates</title>
   <?php include "../topcdn.php" ?>
   <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
@@ -23,10 +23,10 @@ if (!isset($_SESSION['email'])) {
   <section class="section exploreS" style="margin-top: 80px; margin-bottom: 150px !important;">
     <div class="container col-xxl-12 px-3 py-5">
       <div class="py-2 px-2" style="background-color: #0a58ca38 !important; border-radius: 5px;">
-        <a href="admin.php" class="bar">Admin /</a><a href="createJob.php" class="bar ms-2">create Job</a>
+        <a href="admin.php" class="bar">Admin /</a><a href="appliedCandidate.php" class="bar ms-2">Applied candidates</a>
       </div>
           <div class="col-12 heading mt-3">
-            <h3 class="text-white text-center">MANAGE JOB</h3>
+            <h3 class="text-white text-center my-4">Manage Candidates</h3>
           </div>
            <?php
               if (isset($_GET["job"]) && ($_GET["job"]) == 1) {
@@ -54,7 +54,7 @@ if (!isset($_SESSION['email'])) {
               include_once "../connection.php";
 
               if ($connection) {
-                  $sql = "SELECT * FROM freelance_job WHERE status=1";
+                  $sql = "SELECT * FROM apply_job WHERE status=1";
                   $result = $connection->query($sql);
                   $counter = 0;
 
@@ -64,29 +64,26 @@ if (!isset($_SESSION['email'])) {
                       <tr class='border-bottom'>
                         <th scope='col'>No.</th>
                         <th scope='col'>Job Title</th>
-                        <th scope='col'>Required Skills</th>
-                        <th scope='col'>Skills Description</th>
-                        <th scope='col'>Job Description</th>
-                        <th scope='col'>Price</th><th>Time to deliver</th>
+                        <th scope='col'>Candidate Name</th>
+                        <th scope='col'>Cover Letter</th>
+                        <th scope='col'>Related Work</th>
+                        <th scope='col'>Apply Date</th>
                         <th scope='col'>Status</th>
                         <th scope='col'>Action</th>
                       </tr>
                       </thead>";
                       while ($row = $result->fetch_assoc()) {   
-                        $job_id = $row['job_id'];
-                         $req_skill =$row['req_skill'];
-                        $req_skill_array = explode(',', $row['req_skill']);
+                        $job_id = $row['id'];
                         $counter++;
 
                           echo "<tbody class='py-3'>";
                           echo "<tr>";?>
                           <th scope='row'><?php echo $counter; ?></th><?php
-                          echo "<td style='font-size: 11px;'>" . $row['title'] . "</td>";
-                          echo "<td style='font-size: 11px;'>" . $row['req_skill'] . "</td>";
-                          echo "<td style='font-size: 11px;'>" . $row['skill_desc'] . "</td>";
-                          echo "<td style='font-size: 11px;'>" . $row['job_desc'] . "</td>";
-                          echo "<td style='font-size: 11px;'>$" . $row['job_price'] . "</td>";
-                          echo "<td style='font-size: 11px;'>" . $row['del_time'] . " days</td>";
+                          echo "<td style='font-size: 11px;'>" . $row['job_title'] . "</td>";
+                          echo "<td style='font-size: 11px;'>" . $row['user_id'] . "</td>";
+                          echo "<td style='font-size: 11px;'>" . $row['cover_letter'] . "</td>";
+                          echo "<td style='font-size: 11px;'>" . $row['related_work'] . "</td>";
+                          echo "<td style='font-size: 11px;'>" . $row['apply_date'] . "</td>";
                           echo "<td style='font-size: 11px;'>";
                           if ($row['status'] == 1) {
                               echo "<span class='badge rounded-pill bg-success'>Active</span>";
@@ -95,10 +92,19 @@ if (!isset($_SESSION['email'])) {
                           }
                            
                            echo"</td>";
-                          echo "<td> 
-                          <a class='btn btn-sm btn-warning' style='font-size: 11px;' href='editJob.php?jobid=$job_id'>Edit</a> 
-                          <a class='btn btn-sm btn-danger' style='font-size: 11px;' href='deleteJob.php?jobid=$job_id'>Delete</a> 
-                          </td>";
+                          echo '
+                          <td> 
+                          <div class="dropdown">
+                            <button class="btn btn-sm btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Action
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li class="text-center"><a class="dropdown-item" style="font-size: 12px; font-weight: 500;" href="editJob.php?jobid=$job_id">Edit</a></li>
+                              <li class="text-center"><a class="dropdown-item" style="font-size: 12px; font-weight: 500;" href="deleteJob.php?jobid=$job_id">Delete</a> </li>
+                              <li class="text-center"><a class="dropdown-item" style="font-size: 12px; font-weight: 500;" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
+                          </td>';
                           echo "</tr>";
                           echo "</tbody>";
                       }
