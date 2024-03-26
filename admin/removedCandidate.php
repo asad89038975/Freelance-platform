@@ -23,7 +23,7 @@ if (!isset($_SESSION['email'])) {
   <section class="section exploreS" style="margin-top: 80px; margin-bottom: 150px !important;">
     <div class="container col-xxl-12 px-3 py-5">
       <div class="py-2 px-2" style="background-color: #0a58ca38 !important; border-radius: 5px;">
-        <a href="admin.php" class="bar">Admin /</a><a href="appliedCandidate.php" class="bar ms-2">Applied candidates</a>
+        <a href="admin.php" class="bar">Admin /</a><a href="removedCandidate.php" class="bar ms-2">Removed candidates</a>
       </div>
           <div class="col-12 heading mt-3">
             <h3 class="text-white text-center my-4">Manage Candidates</h3>
@@ -54,7 +54,7 @@ if (!isset($_SESSION['email'])) {
               include_once "../connection.php";
 
               if ($connection) {
-                  $sql = "SELECT * FROM apply_job INNER JOIN remoteuser ON apply_job.user_id = remoteuser.user_id  WHERE apply_job.status=1 AND apply_job.candidate_status!=3 ORDER BY apply_job.job_id";
+                  $sql = "SELECT * FROM apply_job INNER JOIN remoteuser ON apply_job.user_id = remoteuser.user_id WHERE apply_job.status=1 AND apply_job.candidate_status=3";
                   $result = $connection->query($sql);
                   $counter = 0;
 
@@ -126,10 +126,10 @@ if (!isset($_SESSION['email'])) {
                           if ($row['candidate_status'] == 1) {
                               echo "<span class='badge rounded-pill bg-success'>Hired</span>";
                           } else if ($row['candidate_status'] == 2) {
-                              echo "<span class='badge rounded-pill bg-warning'>Rejected</span>";
+                              echo "<span class='badge rounded-pill bg-secondary'>Rejected</span>";
                           }
-                          else {
-                              echo "<span class='badge rounded-pill bg-secondary'>Decision Making</span>";
+                          else if ($row['candidate_status'] == 3) {
+                              echo "<span class='badge rounded-pill bg-info'>Removed</span>";
                           }
                            echo"</td>";
                           echo '
@@ -152,7 +152,7 @@ if (!isset($_SESSION['email'])) {
 
                       
                   } else {
-                      echo "No Candidate found.";
+                      echo "No Candidates found.";
                   }
 
                   // Close the database connection

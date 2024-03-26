@@ -232,9 +232,6 @@ body{
 	padding: 7px 20px;
 	list-style: none !important;
 	margin-right: 10px !important;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
 }
 .remove-value{
 	  border-radius: 12px;
@@ -377,7 +374,17 @@ input::placeholder{
 .adCard:hover{
 	scale: 1.01;
 }
-
+.dropdown-toggle{
+	font-size: 12px;
+	font-weight: 600;
+}
+.dropdown-item{
+	font-size: 11.5px; 
+	font-weight: 600;
+}
+.dropdown-item:hover{
+	background-color: #3dd5f3;
+}
 
 
 

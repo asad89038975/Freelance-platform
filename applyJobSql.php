@@ -7,6 +7,7 @@ if(isset($_POST['submit'])) {
     $user_email = $_POST['user_email'];
     $job_title = $_POST['job_title'];
     $jobid = $_POST['jobid'];
+    $job_price = $_POST['job_price'];
     $cover_letter = $_POST['cover_letter'];
     
     // Check if a file is selected
@@ -21,17 +22,17 @@ if(isset($_POST['submit'])) {
             
             try {
                 // Prepare SQL insert statement
-                $sql = "INSERT INTO apply_job (user_id, user_email, job_title, job_id, cover_letter, related_work) VALUES (?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO apply_job (user_id, user_email, job_title, job_id, job_price, cover_letter, related_work) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $connection->prepare($sql);
 
                 // Bind parameters
-                $stmt->bind_param("ssssss", $user_id, $user_email, $job_title, $jobid, $cover_letter, $related_work);
+                $stmt->bind_param("sssssss", $user_id, $user_email, $job_title, $jobid, $job_price, $cover_letter, $related_work);
 
                 // Execute the query
                 if ($stmt->execute()) {
                     // Insertion successful
                     // Move uploaded file to desired location if needed
-                    move_uploaded_file($_FILES['work']['tmp_name'], 'desired_upload_path/' . $_FILES['work']['name']);
+                    move_uploaded_file($_FILES['work']['tmp_name'], 'assets/images/' . $_FILES['work']['name']);
                     header("location: applyJob.php?success=1&jobid=$jobid&user_d=$user_id");
                 } else {
                     // Insertion failed

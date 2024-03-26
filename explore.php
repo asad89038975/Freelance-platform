@@ -178,7 +178,7 @@
 	</section>
 	<?php include "footer.php" ?>
 	<?php include "bottomcdn.php" ?>
-			<?php include "functions.php" ?>
+	<?php include "functions.php" ?>
 		</body>
 		</html>
 		<!-- Modal -->

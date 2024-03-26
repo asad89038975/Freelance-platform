@@ -50,6 +50,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <!-- <li><a class="dropdown-item" href="#"><i class="fas fa-sliders-h fa-fw"></i> Account</a></li> -->
                     <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="applied.php"><i class="fas fa-briefcase fa-fw"></i> Applied Jobs</a></li>
                     <!-- <li><hr class="dropdown-divider"></li> -->
                     <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a></li>
                 </ul>

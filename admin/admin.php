@@ -85,7 +85,7 @@
 		          	</a>
 	            </div>
           	<!-- cards Add skill -->
-          	<!-- cards Add skill -->
+          	<!-- cards applied skill -->
 	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
 		          	<a href="appliedCandidate.php" class="text-decoration-none">
 		            	<div class="card py-3 px-3">
@@ -95,7 +95,18 @@
 						</div>
 		          	</a>
 	            </div>
-          	<!-- cards Add skill -->
+          	<!-- cards applied skill -->
+          	<!-- cards removed skill -->
+	            <div class="col-xxl-4 col-lg-4 col-md-6 col-12 adCard mb-4">
+		          	<a href="removedCandidate.php" class="text-decoration-none">
+		            	<div class="card py-3 px-3">
+						  <div class="card-body">
+						    <h5 class="card-title">Removed Candidates</h5>
+						  </div>
+						</div>
+		          	</a>
+	            </div>
+          	<!-- cards removed skill -->
           </div>  	
 		</div>
 	</section>
