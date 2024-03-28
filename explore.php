@@ -57,98 +57,98 @@
             <div class="col-lg-9 col-md-10 col-12">
             	<div class="row d-flex">
             		<div class="col-12 text-end">
-										<a class="btn btn-lg allBtn" href="allJobs.php">view all Jobs <i class="bi bi-box-arrow-in-up-right" style="font-size: 13px; margin-left: 5px;"></i></a>	
-								</div>
+						<a class="btn btn-lg allBtn" href="allJobs.php">view all Jobs <i class="bi bi-box-arrow-in-up-right" style="font-size: 13px; margin-left: 5px;"></i></a>	
+					</div>
             		<div class="col-12 my-4">
             			<!-- job card start-->
             			
             			<?php
-										$servername = "localhost";
-										$username = "root";
-										$password = "";
-										$dbname = "freelance";
+							$servername = "localhost";
+							$username = "root";
+							$password = "";
+							$dbname = "freelance";
 
-										// Create connection
-										$connection = new mysqli($servername, $username, $password, $dbname);
+							// Create connection
+							$connection = new mysqli($servername, $username, $password, $dbname);
 
-										// Check connection
-										if ($connection->connect_error) {
-										    die("Connection failed: " . $connection->connect_error);
-										}
+							// Check connection
+							if ($connection->connect_error) {
+							    die("Connection failed: " . $connection->connect_error);
+							}
 
-										// Assuming $user_designation, $user_email, and $user_id are defined
-										$user_skills = explode(',', $user_designation);
-										$conditions = [];
-										foreach ($user_skills as $skill) {
-										    $conditions[] = "req_skill LIKE '%" . trim($skill) . "%'";
-										}
-										$condition_string = implode(' OR ', $conditions);
+							// Assuming $user_designation, $user_email, and $user_id are defined
+							$user_skills = explode(',', $user_designation);
+							$conditions = [];
+							foreach ($user_skills as $skill) {
+							    $conditions[] = "req_skill LIKE '%" . trim($skill) . "%'";
+							}
+							$condition_string = implode(' OR ', $conditions);
 
-										// Count Query
-										$count_sql = "SELECT COUNT(*) AS total_matched FROM freelance_job WHERE status = 1 AND ($condition_string)";
+							// Count Query
+							$count_sql = "SELECT COUNT(*) AS total_matched FROM freelance_job WHERE status = 1 AND ($condition_string)";
 
-										// Execute Count Query
-										$count_result = $connection->query($count_sql);
+							// Execute Count Query
+							$count_result = $connection->query($count_sql);
 
-										// Check for Count Query Result
-										if ($count_result === false) {
-										    die("Count Query failed: " . $connection->error);
-										}
-										// Fetch Count Result
-										$count_row = $count_result->fetch_assoc();
-										//$total_matched = $count_row['total_matched'];
+							// Check for Count Query Result
+							if ($count_result === false) {
+							    die("Count Query failed: " . $connection->error);
+							}
+							// Fetch Count Result
+							$count_row = $count_result->fetch_assoc();
+							//$total_matched = $count_row['total_matched'];
 
-										// Retrieve Query (including pagination if needed)
-										$sql = "SELECT * FROM freelance_job WHERE status = 1 AND ($condition_string)";
+							// Retrieve Query (including pagination if needed)
+							$sql = "SELECT * FROM freelance_job WHERE status = 1 AND ($condition_string)";
 
-										// Execute Retrieve Query
-										$result = $connection->query($sql);
+							// Execute Retrieve Query
+							$result = $connection->query($sql);
 
-										// Check for Retrieve Query Result
-										if ($result === false) {
-										    die("Retrieve Query failed: " . $connection->error);
-										}
+							// Check for Retrieve Query Result
+							if ($result === false) {
+							    die("Retrieve Query failed: " . $connection->error);
+							}
 
-										// Display the total count
-										//"<p>Total matched jobs: $total_matched</p>";
+							// Display the total count
+							//"<p>Total matched jobs: $total_matched</p>";
 
-										// Display matched jobs
-										if ($result->num_rows > 0) {
-										    while ($row = $result->fetch_assoc()) {
-										        $job_id = $row['job_id'];
-										        echo '<div class="card jobCard mb-4">';
-										        echo '<div class="card-body">';
-										        echo '<div class="d-flex justify-content-between">';
-										        echo '<span style="font-size: 11px !important;">' . date('d-m-Y', strtotime($row['del_time'])) . '</span>';
-										        echo '<a href="applyJob.php?user_email=' . $user_email . '&jobid=' . $job_id . ' &user_d=' . $user_id . '" class="btn btn-sm applyBtn" align="center">Apply <i class="bi bi-send-arrow-up-fill ms-1"></i></a>';
-										        echo '</div>';
-										        echo '<h4 class="card-title fw-semibold">' . $row['title'] . '</h4>';
-										        echo '<h6 class="card-subtitle mb-2 text-white my-4" style="font-size: 11px !important;">$' . $row['job_price'] . '</h6>';
-										        echo '<p class="card-text my-4">' . $row['job_desc'] . '</p>';
-										        echo '<div class="text-start col-12">';
-										        echo '<ul class="d-flex align-items-center justify-content-start skillUl">';
+							// Display matched jobs
+							if ($result->num_rows > 0) {
+							    while ($row = $result->fetch_assoc()) {
+							        $job_id = $row['job_id'];
+							        echo '<div class="card jobCard mb-4">';
+							        echo '<div class="card-body">';
+							        echo '<div class="d-flex justify-content-between">';
+							        echo '<span style="font-size: 11px !important;">' . date('d-m-Y', strtotime($row['del_time'])) . '</span>';
+							        echo '<a href="applyJob.php?user_email=' . $user_email . '&jobid=' . $job_id . ' &user_d=' . $user_id . '" class="btn btn-sm applyBtn" align="center">Apply <i class="bi bi-send-arrow-up-fill ms-1"></i></a>';
+							        echo '</div>';
+							        echo '<h4 class="card-title fw-semibold">' . $row['title'] . '</h4>';
+							        echo '<h6 class="card-subtitle mb-2 text-white my-4" style="font-size: 11px !important;">$' . $row['job_price'] . '</h6>';
+							        echo '<p class="card-text my-4">' . $row['job_desc'] . '</p>';
+							        echo '<div class="text-start col-12">';
+							        echo '<ul class="d-flex align-items-center justify-content-start skillUl">';
 
-										        // Skills list
-										        $skills = explode(',', $row['req_skill']);
-										        foreach ($skills as $skill) {
-										            echo '<li class="skillL">' . $skill . '</li>';
-										        }
+							        // Skills list
+							        $skills = explode(',', $row['req_skill']);
+							        foreach ($skills as $skill) {
+							            echo '<li class="skillL">' . $skill . '</li>';
+							        }
 
-										        echo '</ul>';
-										        echo '</div>';
-										        echo '<a href="#" class="card-link text-white text-decoration-none" style="font-size: 12px !important;"><i class="bi bi-geo-alt me-2"></i> Pakistan</a>';
-										        echo '</div>';
-										        echo '</div>';
-										    }
-										} else {
-										    echo '<div class="card jobCard mb-4">';
-										    echo '<div class="card-body">';
-										    echo '<div class="text-center"><h4>No job related to your skill</h4></div>';
-										    echo '</div>';
-										    echo '</div>';
-										}
+							        echo '</ul>';
+							        echo '</div>';
+							        echo '<a href="#" class="card-link text-white text-decoration-none" style="font-size: 12px !important;"><i class="bi bi-geo-alt me-2"></i> Pakistan</a>';
+							        echo '</div>';
+							        echo '</div>';
+							    }
+							} else {
+							    echo '<div class="card jobCard mb-4">';
+							    echo '<div class="card-body">';
+							    echo '<div class="text-center"><h4>No job related to your skill</h4></div>';
+							    echo '</div>';
+							    echo '</div>';
+							}
 
-									?>
+						?>
 
 
 

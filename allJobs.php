@@ -56,7 +56,7 @@
 				if ($result->num_rows > 0) {
 				    while ($row = $result->fetch_assoc()) {
 				    		$job_id = $row['job_id'];
-				        echo '<div class="card jobCard col-xxl-4 col-lg-4 col-md-6 col-12 me-3 mb-4">';
+				        echo '<div class="card jobCard col-xxl-5 col-lg-5 col-md-6 col-12 me-3 mb-4">';
 								echo '<div class="card-body">';
 								echo '<div class="d-flex justify-content-between">';
 								echo '<span style="font-size: 11px !important;">' . date('d-m-Y', strtotime($row['del_time'])) . '</span>';

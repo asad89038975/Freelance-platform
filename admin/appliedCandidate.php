@@ -74,7 +74,8 @@ if (!isset($_SESSION['email'])) {
                       </tr>
                       </thead>";
                       while ($row = $result->fetch_assoc()) {   
-                        $job_id = $row['id'];
+                        $job_id = $row['job_id'];
+                        $user_email = $row['user_email'];
                         $user_coverLetter = $row['cover_letter'];
                         $counter++;
 
@@ -139,9 +140,9 @@ if (!isset($_SESSION['email'])) {
                               Action
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="hireSql.php?jobId='.$row['id'].'&userId='.$row['user_id'].'">Hire</a></li>
-                              <li><a class="dropdown-item" href="rejectSql.php?jobId='.$row['id'].'&userId='.$row['user_id'].'">Reject</a> </li>
-                              <li><a class="dropdown-item" href="removeSql.php?jobId='.$row['id'].'&userId='.$row['user_id'].'">Remove (candidate)</a></li>
+                              <li><a class="dropdown-item" href="hireSql.php?jobId='.$row['job_id'].'&userId='.$row['user_id'].'&user_email='.$user_email.'">Hire</a></li>
+                              <li><a class="dropdown-item" href="rejectSql.php?jobId='.$row['job_id'].'&userId='.$row['user_id'].'&user_email='.$user_email.'">Reject</a> </li>
+                              <li><a class="dropdown-item" href="removeSql.php?jobId='.$row['job_id'].'&userId='.$row['user_id'].'&user_email='.$user_email.'">Remove (candidate)</a></li>
                             </ul>
                           </div>
                           </td>';
