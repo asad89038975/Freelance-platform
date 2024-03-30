@@ -386,6 +386,26 @@ input::placeholder{
 	background-color: #3dd5f3;
 }
 
+/*applied page css*/
+.applyJobRow{
+	box-shadow: 1px 1px 1px 2px #073d8a;
+	border: 1px solid #042657;
+	border-radius: 6px;
+}
+.applJobDiv{
+	padding: 2px 20px; 
+	margin-bottom: 10px; 
+	background-color: #042657; 
+	border-radius: 22px;
+	color: #fff !important;
+	text-decoration: none !important;
+	list-style: none !important;
+}
+.applJobDiv:hover{
+	scale: 1.005;
+	background-color: #3368b4d1;
+}
+
 
 
 /*--------------media query fro medium devices--------------*/
