@@ -8,7 +8,7 @@ if (isset($_GET['jobId']) && isset($_GET['userId'])) {
     include_once("../connection.php");
 
     // Prepare SQL statement
-    $sql = "UPDATE apply_job SET candidate_status = 3 WHERE id = ? AND user_id = ?";
+    $sql = "UPDATE apply_job SET candidate_status = 3 WHERE job_id = ? AND user_id = ?";
     
     // Prepare and bind parameters
     $stmt = $connection->prepare($sql);

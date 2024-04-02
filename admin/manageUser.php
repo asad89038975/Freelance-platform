@@ -21,18 +21,18 @@ if (!isset($_SESSION['email'])) {
   <section class="section exploreS" style="margin-top: 80px; margin-bottom: 150px !important;">
     <div class="container col-xxl-12 px-3 py-5">
       <div class="py-2 px-2" style="background-color: #0a58ca38 !important; border-radius: 5px;">
-        <a href="admin.php" class="bar">Admin /</a><a href="createJob.php" class="bar ms-2">create Job</a>
+        <a href="admin.php" class="bar">Admin /</a><a href="manageUser.php" class="bar ms-2">Manage user</a>
       </div>
           <div class="col-12 heading mt-3">
             <h3 class="text-white text-center">MANAGE USER</h3>
           </div>
              <?php
-              if (isset($_GET["delete"]) && ($_GET["delete"]) == 1) {
-                  echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">User Deleted Successfully ! <i class="bi bi-emoji-smile"></i></div>';
+              if (isset($_GET["ban"]) && ($_GET["ban"]) == 1) {
+                  echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">User Banned Successfully ! <i class="bi bi-emoji-smile"></i></div>';
               } 
             ?>
             <?php
-              if (isset($_GET["delete"]) && ($_GET["delete"]) == 0) {
+              if (isset($_GET["ban"]) && ($_GET["ban"]) == 0) {
                   echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">Oops, Something Missed ! <i class="bi bi-emoji-sad"></i></div>';
               } 
             ?>
@@ -42,7 +42,7 @@ if (!isset($_SESSION['email'])) {
               include_once "../connection.php";
 
               if ($connection) {
-                  $sql = "SELECT * FROM remoteuser WHERE status=1 AND BAN=0";
+                  $sql = "SELECT * FROM remoteuser WHERE status=1";
                   $result = $connection->query($sql);
                   $counter = 0;
 
@@ -68,6 +68,7 @@ if (!isset($_SESSION['email'])) {
                       </thead>";
                       while ($row = $result->fetch_assoc()) { 
                       $user_id = $row['user_id'];  
+                      $ban = $row['ban'];  
                         $counter++;
 
                           echo "<tbody class='py-3'>";
@@ -85,9 +86,17 @@ if (!isset($_SESSION['email'])) {
                           echo "<td style='font-size: 11px;'>";
 
                           	if ($row['ban'] == 0) {
-                              echo "<span class='badge rounded-pill bg-success'>Active</span>";
+                              echo "
+                                <a href='manageUserStatus.php?user_id=$user_id&ban=$ban'>
+                                  <span class='badge rounded-pill bg-success'>Active</span>
+                                </a>
+                              ";
                           } else {
-                              echo "<span class='badge rounded-pill bg-secondary'>Ban</span>";
+                              echo "
+                                <a href='manageUserStatus.php?user_id=$user_id&ban=$ban'>
+                                  <span class='badge rounded-pill bg-secondary'>Ban</span>
+                                 </a>
+                              ";
                           }
                           echo "</td>";
 

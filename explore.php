@@ -1,5 +1,5 @@
 <?php
-	include_once "session.php"; 
+  include_once "session.php"; 
   $user_email = $_SESSION['login_user'];
 
   $sqlUser = "SELECT * FROM remoteuser WHERE status = 1 AND email = '$user_email'";
@@ -14,6 +14,7 @@
   	}
   }
 ?>
+
 
 <?php
     if (isset($_GET["success"]) && $_GET["success"] == 1) {
@@ -63,18 +64,7 @@
             			<!-- job card start-->
             			
             			<?php
-							$servername = "localhost";
-							$username = "root";
-							$password = "";
-							$dbname = "freelance";
-
-							// Create connection
-							$connection = new mysqli($servername, $username, $password, $dbname);
-
-							// Check connection
-							if ($connection->connect_error) {
-							    die("Connection failed: " . $connection->connect_error);
-							}
+							include "connection.php";
 
 							// Assuming $user_designation, $user_email, and $user_id are defined
 							$user_skills = explode(',', $user_designation);
@@ -159,21 +149,21 @@
             </div>
             <!-- for others  -->
             <div class="col-lg-3 col-md-12 col-12 d-flex align-items-center justify-content-center">
-						  <div class="card jobCard" align="center" style="width: 18rem; margin-top: 64px;">
-						  	<div class="d-flex align-items-center justify-content-center mt-4">
-						    	<img src="<?php echo $user_image; ?>" style="width: 85px; height: 85px; border-radius: 50%; object-fit: cover;" class="card-img-top" alt="">
-						  	</div>
-						    <div class="card-body">
-						      <h5 class="card-title text-center fs-6"><?php echo $fullname; ?></h5>
-						      <h5 class="card-title text-center fs-6">$200</h5>
-						      <a href="profile.php" style="font-size: 12px;" class="card-link">Complete Your Profile</a><br>
-						      <button type="button" class="btn btn-sm applyBtn my-4 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-									  Dashboard
-									</button>
+			  <div class="card jobCard" align="center" style="width: 18rem; margin-top: 64px;">
+			  	<div class="d-flex align-items-center justify-content-center mt-4">
+			    	<img src="<?php echo $user_image; ?>" style="width: 85px; height: 85px; border-radius: 50%; object-fit: cover;" class="card-img-top" alt="">
+			  	</div>
+			    <div class="card-body">
+			      <h5 class="card-title text-center fs-6"><?php echo $fullname; ?></h5>
+			      <h5 class="card-title text-center fs-6">$200</h5>
+			      <a href="profile.php" style="font-size: 12px;" class="card-link">Complete Your Profile</a><br>
+			      <button type="button" class="btn btn-sm applyBtn my-4 ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						  Dashboard
+						</button>
 
-						    </div>
-						  </div>
-						</div> 	
+			    </div>
+			  </div>
+			</div> 	
 		</div>
 	</section>
 	<?php include "footer.php" ?>
@@ -193,8 +183,8 @@
 		        <div class="form-group p-2">
 		        	<p class="dashP my-3 d-flex align-items-center justify-content-between">Total Jobs (in your category): <span class="badge bg-info text-dark"><?php open_job_in_category($user_designation, $connection); ?></span></p>
 		        	<!-- <p class="dashP my-3 d-flex align-items-center justify-content-between">Related Jobs : <span class="badge bg-info text-dark">23</span></p> -->
-		        	<p class="dashP my-3 d-flex align-items-center justify-content-between">Applied Jobs : <span class="badge bg-info text-dark">23</span></p>
-		        	<p class="dashP my-3 d-flex align-items-center justify-content-between">Completed Jobs : <span class="badge bg-info text-dark">23</span></p>
+		        	<p class="dashP my-3 d-flex align-items-center justify-content-between">Applied Jobs : <span class="badge bg-info text-dark"><?php applied_job($user_email, $connection); ?></span></p>
+		        	<p class="dashP my-3 d-flex align-items-center justify-content-between">Completed Jobs : <span class="badge bg-info text-dark"><?php completed_job($user_email, $connection) ?></span></p>
 		        	<p class="dashP my-3 d-flex align-items-center justify-content-between">Total Earning : <span class="badge bg-info text-dark">Pkr 23.00</span></p>
 		        </div>
 		      </div>

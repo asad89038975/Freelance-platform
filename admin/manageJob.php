@@ -23,38 +23,27 @@ if (!isset($_SESSION['email'])) {
   <section class="section exploreS" style="margin-top: 80px; margin-bottom: 150px !important;">
     <div class="container col-xxl-12 px-3 py-5">
       <div class="py-2 px-2" style="background-color: #0a58ca38 !important; border-radius: 5px;">
-        <a href="admin.php" class="bar">Admin /</a><a href="createJob.php" class="bar ms-2">create Job</a>
+        <a href="admin.php" class="bar">Admin /</a><a href="manageJob.php" class="bar ms-2">Manage Job</a>
       </div>
           <div class="col-12 heading mt-3">
             <h3 class="text-white text-center">MANAGE JOB</h3>
           </div>
            <?php
-              if (isset($_GET["job"]) && ($_GET["job"]) == 1) {
-                  echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Job Added Successfully ! <i class="bi bi-emoji-smile"></i></div>';
+              if (isset($_GET["status"]) && ($_GET["status"]) == 1) {
+                  echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Status Changed Successfully ! <i class="bi bi-emoji-smile"></i></div>';
               } 
             ?>
             <?php
-              if (isset($_GET["job"]) && ($_GET["job"]) == 0) {
+              if (isset($_GET["status"]) && ($_GET["status"]) == 0) {
                   echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">Oops, Something Missed ! <i class="bi bi-emoji-sad"></i></div>';
               } 
             ?>
-             <?php
-              if (isset($_GET["delete"]) && ($_GET["delete"]) == 1) {
-                  echo '<div class="alert alert-success px-3 py-1 fw-semibold fs-6">Job Deleted Successfully ! <i class="bi bi-emoji-smile"></i></div>';
-              } 
-            ?>
-            <?php
-              if (isset($_GET["delete"]) && ($_GET["delete"]) == 0) {
-                  echo '<div class="alert alert-danger px-3 py-1 fw-semibold fs-6">Oops, Something Missed ! <i class="bi bi-emoji-sad"></i></div>';
-              } 
-            ?>
-            
           <form>
             <?php
               include_once "../connection.php";
 
               if ($connection) {
-                  $sql = "SELECT * FROM freelance_job WHERE status=1";
+                  $sql = "SELECT * FROM freelance_job";
                   $result = $connection->query($sql);
                   $counter = 0;
 
@@ -75,7 +64,8 @@ if (!isset($_SESSION['email'])) {
                       while ($row = $result->fetch_assoc()) {   
                         $job_id = $row['job_id'];
                          $req_skill =$row['req_skill'];
-                        $req_skill_array = explode(',', $row['req_skill']);
+                        $status =$row['status'];
+                         $req_skill_array = explode(',', $row['req_skill']);
                         $counter++;
 
                           echo "<tbody class='py-3'>";
@@ -89,9 +79,17 @@ if (!isset($_SESSION['email'])) {
                           echo "<td style='font-size: 11px;'>" . $row['del_time'] . " days</td>";
                           echo "<td style='font-size: 11px;'>";
                           if ($row['status'] == 1) {
-                              echo "<span class='badge rounded-pill bg-success'>Active</span>";
+                              echo "
+                              <a href='changeJobStatus.php?job_id=$job_id&status=$status'>
+                                <span class='badge rounded-pill bg-success'>Active</span>
+                              </a>  
+                                ";
                           } else {
-                              echo "<span class='badge rounded-pill bg-secondary'>Expired</span>";
+                              echo "
+                              <a href='changeJobStatus.php?job_id=$job_id&status=$status'>
+                                <span class='badge rounded-pill bg-secondary'>Expired</span>
+                              </a>  
+                              ";
                           }
                            
                            echo"</td>";
